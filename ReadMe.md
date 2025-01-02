@@ -1,5 +1,3 @@
-# 💫 About Me:
-
 # 👋 Hello, World!
 
 I'm **Shivam Sheokand**, a passionate Full Stack Web and App Developer! 🌐 I love crafting seamless digital experiences from front to back. Here's a bit about what I do:
