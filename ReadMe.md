@@ -1,7 +1,19 @@
-# 👋 Hello, World!
+<!-- Animated Typing Header -->
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=26&duration=2500&pause=800&color=00F5FF&center=true&vCenter=true&width=435&lines=Hey+there!+I'm+Shivam+Sheokand+👋;Full+Stack+Web+%2B+App+Developer;Code.+Design.+Build.+Repeat.💻" alt="Typing SVG" />
+</p>
 
-I'm **Shivam Sheokand**, a passionate **Full Stack Web and App Developer**! 🚀  
-I specialize in creating seamless digital experiences from frontend design to backend logic.  
+<!-- Developer GIF -->
+<p align="center">
+  <img src="https://github.com/rajput2107/rajput2107/blob/master/Assets/Developer.gif" width="50%" alt="dev-gif"/>
+</p>
+
+---
+
+# 👨‍💻 About Me
+
+I'm **Shivam Sheokand**, a passionate **Full Stack Web and App Developer** based in India 🇮🇳.  
+I love building fast, beautiful, and scalable digital products from frontend to backend.
 
 ---
 
@@ -13,19 +25,19 @@ I specialize in creating seamless digital experiences from frontend design to ba
 
 ---
 
-## 🎨 What I Love to Build
+## 💼 What I Love to Build
 
-- 💻 **Web Applications** – From sleek single-page apps to powerful platforms.
-- 📱 **Mobile Apps** – Cross-platform apps using React Native.
-- 🔗 **APIs** – RESTful & real-time services for modern needs.
+- 🌐 **Web Applications** – Sleek, scalable SPAs & platforms.
+- 📱 **Mobile Apps** – Cross-platform using React Native.
+- 🔌 **APIs** – RESTful and real-time Laravel or Node.js APIs.
 
 ---
 
-## 🌱 Currently Learning
+## 📚 Currently Learning
 
-- Advanced TypeScript
-- Serverless Architecture
-- Ethical Hacking & Security
+- 🧠 Advanced TypeScript Features
+- ☁️ Serverless Architectures
+- 🔐 Ethical Hacking and Cybersecurity
 
 ---
 
@@ -33,9 +45,9 @@ I specialize in creating seamless digital experiences from frontend design to ba
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=shivamsheokand&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-  <br />
+  <br/>
   <img src="https://github-readme-streak-stats.herokuapp.com?user=shivamsheokand&theme=tokyonight&hide_border=false" alt="GitHub Streak" />
-  <br />
+  <br/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamsheokand&layout=compact&theme=tokyonight&hide_border=false&count_private=true" alt="Top Languages" />
 </p>
 
@@ -44,7 +56,7 @@ I specialize in creating seamless digital experiences from frontend design to ba
 ## 🏆 Top Contributions
 
 <p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=shivamsheokand&limit=5&theme=tokyonight&combine_all_yearly_contributions=true" alt="Top Contributions" />
+  <img src="https://github-contributor-stats.vercel.app/api?username=shivamsheokand&limit=5&theme=tokyonight&combine_all_yearly_contributions=true" />
 </p>
 
 ---
@@ -52,12 +64,12 @@ I specialize in creating seamless digital experiences from frontend design to ba
 ## 📜 Random Dev Quote
 
 <p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" />
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
 </p>
 
 ---
 
-## 😂 Dev Meme of the Day
+## 😂 Meme of the Day
 
 <p align="center">
   <img src="https://memer-new.vercel.app/" height="300px" alt="Dev Meme" />
@@ -83,10 +95,12 @@ I specialize in creating seamless digital experiences from frontend design to ba
 
 ## ☕ Support My Work
 
-If you love what I do and want to support me:
+If you like what I do and want to support me:
 
-<a href="https://buymeacoffee.com/shivamsheokand"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" /></a>
-<a href="https://paypal.me/developersam"><img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" /></a>
+<p align="center">
+  <a href="https://buymeacoffee.com/shivamsheokand"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" /></a>
+  <a href="https://paypal.me/developersam"><img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" /></a>
+</p>
 
 ---
 
