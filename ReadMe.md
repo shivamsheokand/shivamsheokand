@@ -48,7 +48,7 @@ I love building **innovative**, **performance-driven digital experiences** from 
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamsheokand&layout=compact&theme=tokyonight&hide_border=false&count_private=true" width="47%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamsheokand&layout=compact&theme=tokyonight&hide_border=false&count_private=true" width="100%" />
 </p>
 
 ---
