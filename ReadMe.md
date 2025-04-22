@@ -44,8 +44,7 @@ I love building **innovative**, **performance-driven digital experiences** from 
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=shivamsheokand&theme=tokyonight&show_icons=true&hide_border=false&include_all_commits=true&count_private=true" width="47%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivamsheokand&theme=tokyonight&hide_border=false" width="47%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivamsheokand&theme=tokyonight&hide_border=false" width="100%" />
 </p>
 
 <p align="center">
