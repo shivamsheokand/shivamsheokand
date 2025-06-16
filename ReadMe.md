@@ -50,24 +50,8 @@ I love building **innovative**, **performance-driven digital experiences** from 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamsheokand&layout=compact&theme=tokyonight&hide_border=false&count_private=true" width="100%" />
 </p>
-
 ---
 
-## 🏆 Top Contributions
-
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=shivamsheokand&limit=5&theme=tokyonight&combine_all_yearly_contributions=true" width="80%" />
-</p>
-
----
-
-## 💬 Dev Quote of the Day
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
-</p>
-
----
 
 ## 🌐 Connect With Me
 
