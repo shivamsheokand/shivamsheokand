@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICoders - Professional Web Development Agency</title>
+    <meta name="description"
+        content="AICoders - Modern web development agency specializing in custom websites, SEO optimization, and innovative design solutions.">
+    <meta name="keywords" content="web development, web design, SEO, custom websites, responsive design">
+
+    <!-- CDN Links -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <style>
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent: #00d4ff;
+            --accent-secondary: #8b5cf6;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8fafc;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .glass-morphism {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+            }
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        [data-theme="light"] .nav-blur {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.8), rgba(139, 92, 246, 0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .portfolio-item .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .pricing-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 3D Background Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Theme Toggle -->
+    <div style="margin-top: 50px;" class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-sun" id="theme-icon"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 nav-blur transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">AICoders</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#portfolio" class="hover:text-blue-400 transition-colors">Portfolio</a>
+                    <a href="#pricing" class="hover:text-blue-400 transition-colors">Pricing</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Home</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Services</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()"
+                class="hover:text-blue-400 transition-colors">Portfolio</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Pricing</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center hero-content">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title text-6xl md:text-8xl font-bold mb-6 gradient-text floating-animation">
+                    AICoders
+                </h1>
+                <p class="hero-subtitle text-xl md:text-2xl mb-8 text-gray-400">
+                    Crafting Future-Ready Digital Experiences
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/+918607295210">
+                        <button
+                            class="glass-morphism px-8 py-4 text-lg font-semibold hover:scale-105 transition-all pulse-glow">
+                            Start Your Project
+                        </button>
+                    </a>
+                    <a href="#portfolio">
+                        <button
+                            class="border border-blue-400 px-8 py-4 text-lg font-semibold hover:bg-blue-400 hover:text-black transition-all">
+                            View Portfolio
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900" style="background: var(--secondary-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Our Services</h2>
+                <p class="text-xl text-gray-400">Innovative solutions for modern businesses</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-blue-400">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Modern Website Development</h3>
+                    <p class="text-gray-400">Cutting-edge web applications built with the latest technologies and
+                        frameworks.</p>
+                </div>
+
+                <div class="service-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-purple-400">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Custom Web Design</h3>
+                    <p class="text-gray-400">Unique, eye-catching designs that reflect your brand and engage your
+                        audience.</p>
+                </div>
+
+                <div class="service-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 text-green-400">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">SEO Optimization</h3>
+                    <p class="text-gray-400">Boost your online visibility with advanced SEO strategies and techniques.
+                    </p>
+                </div>
+
+                <div class="service-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4 text-yellow-400">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Affordable Pricing</h3>
+                    <p class="text-gray-400">Premium quality services at competitive prices to fit your budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Our Portfolio</h2>
+                <p class="text-xl text-gray-400">Showcasing our finest work</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">E-commerce Platform</h4>
+                            <p>Modern online store</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-64 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">Corporate Website</h4>
+                            <p>Professional business site</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">SaaS Dashboard</h4>
+                            <p>Analytics platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="h-64 bg-gradient-to-br from-yellow-500 to-red-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">Restaurant App</h4>
+                            <p>Food delivery platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="h-64 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">Healthcare Portal</h4>
+                            <p>Medical management system</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="h-64 bg-gradient-to-br from-teal-500 to-green-600 rounded-lg"></div>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4 class="text-xl font-bold">Finance App</h4>
+                            <p>Investment tracking tool</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900" style="background: var(--secondary-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">What Clients Say</h2>
+                <p class="text-xl text-gray-400">Trusted by businesses worldwide</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="mb-6 text-gray-300">"AICoders delivered an exceptional website that exceeded our
+                        expectations. Their attention to detail and modern approach is outstanding."</p>
+                    <div class="font-bold">Sarah Johnson</div>
+                    <div class="text-sm text-gray-400">CEO, TechStart Inc.</div>
+                </div>
+
+                <div class="glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="mb-6 text-gray-300">"Professional, efficient, and innovative. Our new website has
+                        significantly improved our online presence and customer engagement."</p>
+                    <div class="font-bold">Michael Chen</div>
+                    <div class="text-sm text-gray-400">Marketing Director, Global Solutions</div>
+                </div>
+
+                <div class="glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="mb-6 text-gray-300">"The team at AICoders is incredibly talented. They transformed our
+                        vision into a stunning, functional website that drives results."</p>
+                    <div class="font-bold">Emma Davis</div>
+                    <div class="text-sm text-gray-400">Founder, Creative Agency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Pricing Plans</h2>
+                <p class="text-xl text-gray-400">Choose the perfect plan for your needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="pricing-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$999</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Responsive Design</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>5 Pages</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Basic SEO</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Contact Form</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>30 Days Support</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 border border-blue-400 hover:bg-blue-400 hover:text-black transition-all">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="pricing-card featured glass-morphism p-8 text-center" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-400 text-black px-4 py-1 rounded-full text-sm font-bold">
+                        POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$2499</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Everything in Starter</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>10 Pages</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Advanced SEO</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>CMS Integration</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>E-commerce Ready</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>90 Days Support</li>
+                    </ul>
+                    <button class="w-full py-3 bg-blue-400 text-black hover:bg-blue-500 transition-all pulse-glow">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="pricing-card glass-morphism p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$4999</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Everything in Professional</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Unlimited Pages</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Custom Features</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>API Integration</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Priority Support</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>1 Year Support</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 border border-blue-400 hover:bg-blue-400 hover:text-black transition-all">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900" style="background: var(--secondary-bg);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h2>
+                <p class="text-xl text-gray-400">Ready to start your project? Let's talk!</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-400 mr-4"></i>
+                                <span>chaudharyshivamsheokand@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-blue-400 mr-4"></i>
+                                <span>+91 (860) 729-5210</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-400 mr-4"></i>
+                                <span>Hisar Haryana, IN</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://instagram.com/developer.shivam_"
+                                    class="text-2xl hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://github.com/shivamsheokand"
+                                    class="text-2xl hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-left">
+                        <form class="glass-morphism p-8 space-y-6">
+                            <div>
+                                <input type="text" placeholder="Your Name"
+                                    class="w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email"
+                                    class="w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Subject"
+                                    class="w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="5"
+                                    class="w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-3 bg-blue-400 text-black hover:bg-blue-500 transition-all rounded-lg font-semibold pulse-glow">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold gradient-text mb-4">AICoders</div>
+                    <p class="text-gray-400 mb-4">Crafting digital experiences that inspire and engage.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Web Design</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">SEO Optimization</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">E-commerce</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>chaudharyshivamsheokand@gmail.com</li>
+                        <li>+91 (860) 729-5210</li>
+                        <li>Hisar Haryana, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 AICoders. All rights reserved. Built with ❤️ and cutting-edge technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Theme Toggle Functionality
+        let isDark = true;
+
+        function toggleTheme() {
+            isDark = !isDark;
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (isDark) {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('backdrop-blur-lg');
+            } else {
+                navbar.classList.remove('backdrop-blur-lg');
+            }
+        });
+
+        // Three.js 3D Background Animation
+        let scene, camera, renderer, particles, waveGeometry, waveMaterial, waveMesh;
+        let mouseX = 0, mouseY = 0;
+        let time = 0;
+
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.getElementById('three-canvas'),
+                alpha: true,
+                antialias: true
+            });
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+
+            // Create floating geometric shapes
+            createFloatingShapes();
+
+            // Create wave effect
+            createWaveEffect();
+
+            // Create particle system
+            createParticleSystem();
+
+            camera.position.z = 50;
+
+            // Mouse movement listener
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            animate();
+        }
+
+        function createFloatingShapes() {
+            const shapes = [];
+            const shapeCount = 20;
+
+            for (let i = 0; i < shapeCount; i++) {
+                // Create different geometric shapes
+                let geometry;
+                const shapeType = Math.floor(Math.random() * 3);
+
+                switch (shapeType) {
+                    case 0:
+                        geometry = new THREE.BoxGeometry(1, 1, 1);
+                        break;
+                    case 1:
+                        geometry = new THREE.SphereGeometry(0.5, 8, 8);
+                        break;
+                    case 2:
+                        geometry = new THREE.ConeGeometry(0.5, 1, 6);
+                        break;
+                }
+
+                const material = new THREE.MeshBasicMaterial({
+                    color: new THREE.Color().setHSL(0.5 + Math.random() * 0.3, 0.8, 0.6),
+                    transparent: true,
+                    opacity: 0.3,
+                    wireframe: true
+                });
+
+                const mesh = new THREE.Mesh(geometry, material);
+
+                // Random positioning
+                mesh.position.x = (Math.random() - 0.5) * 100;
+                mesh.position.y = (Math.random() - 0.5) * 100;
+                mesh.position.z = (Math.random() - 0.5) * 100;
+
+                // Random rotation
+                mesh.rotation.x = Math.random() * Math.PI;
+                mesh.rotation.y = Math.random() * Math.PI;
+                mesh.rotation.z = Math.random() * Math.PI;
+
+                // Add custom properties for animation
+                mesh.userData = {
+                    originalX: mesh.position.x,
+                    originalY: mesh.position.y,
+                    originalZ: mesh.position.z,
+                    rotationSpeed: {
+                        x: (Math.random() - 0.5) * 0.02,
+                        y: (Math.random() - 0.5) * 0.02,
+                        z: (Math.random() - 0.5) * 0.02
+                    },
+                    floatSpeed: Math.random() * 0.02 + 0.01,
+                    floatRange: Math.random() * 10 + 5
+                };
+
+                shapes.push(mesh);
+                scene.add(mesh);
+            }
+
+            window.floatingShapes = shapes;
+        }
+
+        function createWaveEffect() {
+            const waveGeometry = new THREE.PlaneGeometry(200, 200, 50, 50);
+            const waveMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.1,
+                wireframe: true,
+                side: THREE.DoubleSide
+            });
+
+            waveMesh = new THREE.Mesh(waveGeometry, waveMaterial);
+            waveMesh.rotation.x = -Math.PI / 2;
+            waveMesh.position.y = -30;
+            scene.add(waveMesh);
+        }
+
+        function createParticleSystem() {
+            const particleCount = 500;
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+
+                positions[i3] = (Math.random() - 0.5) * 200;
+                positions[i3 + 1] = (Math.random() - 0.5) * 200;
+                positions[i3 + 2] = (Math.random() - 0.5) * 200;
+
+                // Create color gradient from blue to cyan to purple
+                const hue = 0.5 + Math.random() * 0.3;
+                const color = new THREE.Color().setHSL(hue, 0.8, 0.6);
+                colors[i3] = color.r;
+                colors[i3 + 1] = color.g;
+                colors[i3 + 2] = color.b;
+
+                sizes[i] = Math.random() * 3 + 1;
+            }
+
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const material = new THREE.PointsMaterial({
+                size: 2,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6,
+                sizeAttenuation: true
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+
+            // Animate floating shapes
+            if (window.floatingShapes) {
+                window.floatingShapes.forEach(shape => {
+                    // Rotation animation
+                    shape.rotation.x += shape.userData.rotationSpeed.x;
+                    shape.rotation.y += shape.userData.rotationSpeed.y;
+                    shape.rotation.z += shape.userData.rotationSpeed.z;
+
+                    // Floating animation
+                    shape.position.y = shape.userData.originalY +
+                        Math.sin(time * shape.userData.floatSpeed) * shape.userData.floatRange;
+
+                    // Mouse interaction
+                    shape.position.x = shape.userData.originalX + mouseX * 10;
+                    shape.position.z = shape.userData.originalZ + mouseY * 10;
+                });
+            }
+
+            // Animate particles
+            if (particles) {
+                particles.rotation.y += 0.001;
+
+                // Make particles pulse
+                const positions = particles.geometry.attributes.position.array;
+                for (let i = 0; i < positions.length; i += 3) {
+                    positions[i + 1] += Math.sin(time + positions[i] * 0.01) * 0.1;
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+            }
+
+            // Animate wave effect
+            if (waveMesh) {
+                const positions = waveMesh.geometry.attributes.position.array;
+                for (let i = 0; i < positions.length; i += 3) {
+                    const x = positions[i];
+                    const z = positions[i + 2];
+                    positions[i + 1] = Math.sin(x * 0.1 + time) * 2 + Math.cos(z * 0.1 + time) * 2;
+                }
+                waveMesh.geometry.attributes.position.needsUpdate = true;
+                waveMesh.rotation.z += 0.005;
+            }
+
+            // Camera movement based on mouse
+            camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+            camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        // Initialize Three.js when page loads
+        window.addEventListener('load', () => {
+            initThreeJS();
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-content');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simple form validation
+            const inputs = this.querySelectorAll('input, textarea');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#6b7280';
+                }
+            });
+
+            if (isValid) {
+                // Show success message
+                const button = this.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = 'Message Sent! ✓';
+                button.style.backgroundColor = '#10b981';
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#60a5fa';
+                    this.reset();
+                }, 3000);
+            }
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add custom cursor effect
+        const cursor = document.createElement('div');
+        cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, rgba(0,212,255,0.8) 0%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: difference;
+                transition: transform 0.1s ease;
+                `;
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('button, a, .service-card, .portfolio-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2)';
+            });
+
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+
+        // Typing animation for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
+        // Initialize typing animation when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                setTimeout(() => {
+                    typeWriter(heroTitle, 'AICoders', 150);
+                }, 1000);
+            }
+        });
+
+        // Add loading screen
+        const loadingScreen = document.createElement('div');
+        loadingScreen.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                transition: opacity 0.5s ease;
+                `;
+
+        loadingScreen.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="width: 50px; height: 50px; border: 3px solid #333; border-top: 3px solid #00d4ff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                    <div style="color: #00d4ff; font-size: 1.5rem; font-weight: bold;">Loading AICoders...</div>
+                </div>
+                `;
+
+        document.body.appendChild(loadingScreen);
+
+        // Add spin animation
+        const style = document.createElement('style');
+        style.textContent = `
+                @keyframes spin {
+                    0 % { transform: rotate(0deg); }
+                100% {transform: rotate(360deg); }
+            }
+
+                .animate-fadeInUp {
+                    animation: fadeInUp 0.6s ease forwards;
+            }
+
+                @keyframes fadeInUp {
+                    from {
+                    opacity: 0;
+                transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                transform: translateY(0);
+                }
+            }
+                `;
+        document.head.appendChild(style);
+
+        // Remove loading screen when everything is loaded
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 500);
+            }, 1500);
+        });
+
+        // Add performance optimization
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Debounce scroll events for better performance
+        const debouncedScrollHandler = debounce(() => {
+            const scrolled = window.pageYOffset;
+            const navbar = document.getElementById('navbar');
+
+            if (scrolled > 50) {
+                navbar.classList.add('backdrop-blur-lg');
+            } else {
+                navbar.classList.remove('backdrop-blur-lg');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+    </script>
+</body>
+
+</html>
