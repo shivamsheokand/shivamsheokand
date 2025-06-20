@@ -1,7 +1,8 @@
 <!-- 🧑‍💻 Developer Header -->
 <h1 align="center">Hi, I'm Shivam Sheokand 👋</h1>
 <h3 align="center">🚀 Full Stack Web & App Developer | Passionate about Crafting Scalable & Innovative Solutions</h3>
-<h4 align="center" >My Portfolio :- <a href="https://portfolio-kwp4o38aw-shivams-projects-63239a08.vercel.app/">Visit</a></h4>
+<h4 align="center" >My Portfolio Vercel:- <a href="https://portfolio-kwp4o38aw-shivams-projects-63239a08.vercel.app/">Visit</a></h4>
+<h4 align="center" >My Portfolio Git:- <a href="https://shivamsheokand.github.io/chaudharyshivamsheokand/">Visit</a></h4>
 <!-- 🧑‍💻 Developer GIF -->
 <p align="center">
   <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="60%" alt="Coding Animation">
